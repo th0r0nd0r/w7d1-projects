@@ -12,14 +12,19 @@ import TodoForm from './todo_form';
 // };
 
 class TodoList extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
+
   render() {
 
-    const { todos, receiveTodo } = this.props;
+    const { todos, createTodo } = this.props;
     let items = todos.map( (todo) => (
       <TodoListItem
         key={todo.id}
         todo={todo}
-        receiveTodo={ receiveTodo } />
+        createTodo={ createTodo } />
     ));
 
     return (
@@ -31,11 +36,11 @@ class TodoList extends React.Component {
         <br />
         <div className="todo-form">
           <h2>Add a Todo Item&#58;</h2>
-          <TodoForm receiveTodo={ receiveTodo }/>
+          <TodoForm createTodo={ createTodo }/>
         </div>
       </div>
     );
   }
 }
-
+//change receive to create?
 export default TodoList;

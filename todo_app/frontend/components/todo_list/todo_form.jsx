@@ -1,6 +1,6 @@
 import React from 'react';
 
-import uniqueId from '../../util/unique_id';
+
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -20,13 +20,15 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state, {id: uniqueId()});
+    const todo = Object.assign({}, this.state);
     // what are the props in this scenario?
-    this.props.receiveTodo(todo);
-    this.setState({
-      title: "",
-      body: ""
-    });
+    this.props.createTodo( todo ).then(
+      () => this.setState({ title: '', body: '' })
+    );
+    // this.setState({
+    //   title: "",
+    //   body: ""
+    // });
   }
 
   render() {

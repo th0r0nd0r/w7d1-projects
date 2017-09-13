@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import configureStore from "./store/store";
-import {receiveTodos, receiveTodo} from './actions/todo_actions';
+import {receiveTodos, receiveTodo, fetchTodos} from './actions/todo_actions';
 // import App from "./components/app";
 import Root from "./components/root";
 import {getAllTodos} from './reducers/selectors';
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.receiveTodo = receiveTodo;
   window.receiveTodos = receiveTodos;
   window.getAllTodos = getAllTodos;
+  window.fetchTodos = fetchTodos;
 });
 
 // <Root store={store} variable="parker"/>
